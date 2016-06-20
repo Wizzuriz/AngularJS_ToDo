@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- todo fix gulp and compile files to mini versions. -->
+    <!-- Production files-->
+    <!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.css">-->
+    <link rel="stylesheet" href="Build/css/styles.css">
+    <link rel="script" href="node_modules/bootstrap/dist/js/bootstrap.js">
+    <!--End of production files-->
+
+    <!--fetch all our styles-->
+    <!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">-->
+    <!--<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap-theme.min.css">-->
+    <!--fetch all our javaScript for styles-->
+    <link rel="script" href="node_modules/bootstrap/dist/js/bootstrap.min.js">
+    <link rel="script" href="node_modules/bootstrap/dist/js/npm.js">
+    <!--Fetch all our Angular Dependencies -->
+    <script type="text/javascript" src="node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-bootstrap/dist/ui-bootstrap.js"></script>
+    <script type="text/javascript" src="node_modules/angular-ui-router/release/angular-ui-router.min.js"></script>
+    <script type="text/javascript" src="node_modules/angular-cookies/angular-cookies.min.js"></script>
+    <!--Services -->
+    <script type="text/javascript" src="Src/Scripts/Services/Authentication.js"></script>
+    <script type="text/javascript" src="Src/Scripts/Services/UserRegistration.js"></script>
+    <script type="text/javascript" src="Src/Scripts/Services/Todo.js"></script>
+    <!--Controllers-->
+    <script type="text/javascript" src="Src/Scripts/Controllers/AuthenticationController.js"></script>
+    <script type="text/javascript" src="Src/Scripts/Controllers/RegistrationController.js"></script>
+    <script type="text/javascript" src="Src/Scripts/Controllers/ApplicationController.js"></script>
+    <script type="text/javascript" src="Src/Scripts/Controllers/TodoController.js"></script>
+    <!--Directives-->
+    <script type="text/javascript" src="Src/Scripts/Directives/TodoDisplay.js"></script>
+    <!--Load our Angular application-->
+    <script src="Application.js"></script>
+    <title>Kea Exam Project - Todo</title>
+</head>
+<body ng-app="application">
+<!-- Add the Navigation bar to the website.-->
+<div ng-include src="'Src/Html/Navigation/navbar.html'"></div>
+<!--Display partials here-->
+<div class="col-md-12" ui-view></div>
+</body>
+</html>

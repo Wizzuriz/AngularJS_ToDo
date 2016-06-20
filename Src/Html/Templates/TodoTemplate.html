@@ -1,0 +1,41 @@
+<div class="row col-md-12" ng-hide="deleted">
+    <div class="bs-callout" ng-class="todoData.archived ? 'bs-callout-done' : 'bs-callout-info'">
+        <button ng-click="delete(todoData._id)" class="btn btn-danger btn-xs btn-space" style="float:right; bottom:5px;right:5px;margin:0;padding:5px 3px;">
+            &nbsp; <i class="glyphicon glyphicon-trash "></i> &nbsp;
+        </button>
+
+        <button ng-click="enableEditTitle(todoData._id, todoData.title)" class="btn btn-warning btn-xs btn-space" style="float:right; bottom:5px;right:5px;margin:0; padding:5px 3px;">
+            &nbsp; <i class="glyphicon glyphicon-pencil "></i> &nbsp;
+        </button>
+        <button style="float:right;" ng-click="displayCreateTodoForm(todoData._id)" class="btn btn-primary btn-sm btn-space">
+            <i class="glyphicon glyphicon-plus "></i>
+        </button>
+        <button style="float:right;" ng-click="markCompleted(todoData._id)" class="btn btn-success btn-sm btn-space">
+            <i class="glyphicon glyphicon-ok "></i>
+        </button>
+
+        <form name="updateTitile" ng-submit="submitForm(updateTitile.$valid)" novalidate >
+            <div ng-show="editMode" class="form-group">
+                <h1>
+                    <label>Title:</label>
+                    <input type="text" name="newTitle" class="from-control" ng-model="newTitle" ng-maxlength="128" required>
+                    <button ng-click="changeTitle(todoData._id)" class="btn btn-success" ng-disabled="updateTitile.$invalid">
+                        <i class="glyphicon glyphicon-ok-circle"></i>
+                    </button>
+                    <button ng-click="enableEditTitle(todoData._id)" class="btn btn-danger btn-space">
+                        <i class="glyphicon glyphicon-remove"></i>
+                    </button>
+                </h1>
+            </div>
+        </form>
+
+        <div ng-hide="editMode">
+            <h1>{{todoData.title}}</h1>
+        </div>
+        <div ng-include="'Src/Html/Templates/CreateTodoTemplate.html'"></div>
+    </div>
+    <ul style="padding-top: -5px">
+        <!--Nested directive call here.-->
+        <todo ng-repeat="x in todoData.child" data='x'></todo>
+    </ul>
+</div>

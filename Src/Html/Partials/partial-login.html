@@ -1,0 +1,21 @@
+<div ng-app="AuthenticationCtrl" ng-controller="AuthenticationController" class="container">
+    <div>
+        <div class="col-md-4 jumbotron col-md-offset-4">
+            <div class="text-center">
+                <h2>Login</h2>
+                <form name="loginForm" ng-submit="submitForm(loginForm.$valid)" novalidate>
+                    <div class="form-group" ng-class="{ 'has-error' : username.$invalid && !username.$pristine}">
+                        <label></label>
+                        <input type="text" name="username" class="from-control"   placeholder="UserName" ng-model="username" ng-maxlength="128" required>
+                    </div>
+                    <div class="form-group" ng-class="{'has-error': password.$invalid && !password.$pristine}">
+                        <label ></label>
+                        <input type="password" name="password" class="from-control" placeholder="Password" ng-model="password" ng-maxlength="128" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary" ng-disabled="loginForm.$invalid">Login</button>
+                </form>
+                <p ng-show="msg!=null">{{msg}}</p>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+<div ng-app="login" ng-controller="RegistrationController" class="container">
+    <div class="col-md-4 jumbotron col-md-offset-4">
+        <div class="text-center">
+            <h2>Register new user</h2>
+            <form class="form-group" name="registerForm" ng-submit="submitForm(registerForm.$valid)" novalidate>
+                <div class="form-group" ng-class="{ 'has-error' : username.$invalid && !username.$dirty}">
+                    <input type="text" name="username" class="from-control" id="inputdefault" placeholder="UserName" ng-model="username" ng-maxlength="128" required>
+                </div>
+                <div class="form-group" ng-class="{'has-error': password.$invalid && password.$dirty}">
+                    <input type="password" name="password" class="from-control" placeholder="Password" ng-model="password" ng-maxlength="128" required>
+                </div>
+                <div class="form-group" ng-class="{'has-error': fullname.$invalid && fullname.$dirty}">
+                    <input type="text" name="fullname" class="from-control" placeholder="Full name" ng-model="fullname" ng-maxlength="128">
+                </div>
+                <div class="form-group" ng-class="{'has-error': age.$invalid && !age.$pristine}">
+                    <input type="text" name="age" class="from-control" placeholder="Age" ng-model="age" ng-maxlength="128">
+                </div>
+                <button type="submit" class="button btn btn-primary" ng-disabled="registerForm.$invalid">Register</button>
+            </form>
+            <p ng-show="msg!=null">{{msg}}</p>
+        </div>
+    </div>
+</div>
+

@@ -1,0 +1,13 @@
+<div ng-app="TodoCtrl" ng-controller="TodoController" class="container">
+    <div class="row" style="padding-top: 50px">
+        <button ng-click="displayCreateTodoForm()" class="btn btn-primary btn-sm btn-space">
+            <i class="glyphicon glyphicon-plus "></i>
+        </button>
+    </div>
+    <!--include the form to create a new todo.-->
+    <div ng-include="'Src/Html/Templates/CreateTodoTemplate.html'"></div>
+    <!--display the _todo trees-->
+    <div class="row col-md-12" style="padding-top: 80px">
+        <todo ng-repeat="x in data" data='x'></todo>
+    </div>
+</div>
